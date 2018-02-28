@@ -22,9 +22,9 @@
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!--别名包所在位置-->
-        <property name="typeAliasesPackage" value="com.channel.pojo"/>
+        <property name="typeAliasesPackage" value="com.shanghai.pojo"/>
         <!--Mapper文件所在位置-->
-        <property name="mapperLocations" value="classpath:mapper/"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
         <!--&lt;!&ndash;插件配置&ndash;&gt;
         <property name="plugins">
             <array>
@@ -45,7 +45,7 @@
 
     <!--扫描MyBatis中的Mapper接口，并自动放入Spring容器-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.channel.mapper"/>
+        <property name="basePackage" value="com.shanghai.mapper"/>
     </bean>
 
 </beans>

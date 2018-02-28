@@ -1,7 +1,19 @@
 package com.shanghai.controller;
 
+import com.shanghai.domain.service.CurdService;
+import com.shanghai.pojo.Account;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by xinjian on 2018/2/28 0028.
@@ -12,8 +24,43 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
 
-    @GetMapping("/hello")
+    @Autowired
+    private CurdService curdService;
+
+    @GetMapping("/login")
     public String hello(){
-        return "home";
+        return "login";
     }
+
+
+    /**登录认证
+     * @param username
+     * @param password
+     * @param request
+     * @return
+     */
+    @PostMapping("/login")
+    public String login(String username, String password, HttpServletRequest request,RedirectAttributes redirectAttributes) {
+        try {
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            subject.login(token);
+            return "home";
+        }catch (AuthenticationException ex){
+            redirectAttributes.addAttribute("message","账户密码错误");
+            return "redirect:login";
+        }
+    }
+
+    /**安全退出
+     * @param redirectAttributes
+     * @return
+     */
+    @GetMapping("/logout")
+    public String logout(RedirectAttributes redirectAttributes){
+        SecurityUtils.getSubject().logout();
+        redirectAttributes.addAttribute("message","您已安全退出系统");
+        return "redirect:/login";
+    }
+
 }
