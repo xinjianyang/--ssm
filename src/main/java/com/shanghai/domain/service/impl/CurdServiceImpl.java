@@ -4,6 +4,10 @@ import com.shanghai.domain.service.CurdService;
 import com.shanghai.exception.ServiceException;
 import com.shanghai.mapper.*;
 import com.shanghai.pojo.*;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +35,11 @@ public class CurdServiceImpl implements CurdService {
 
 
     @Override
+    public void checkRole() {
+        Subject subject = SecurityUtils.getSubject();
+    }
+
+    @Override
     public void saveRole(Role role) {
         if(role == null){
             throw new ServiceException("role为null");
@@ -49,6 +58,7 @@ public class CurdServiceImpl implements CurdService {
     }
 
     @Override
+    @RequiresRoles("admin")
     public void savePermission(Permission permission) {
         if(permission == null){
             throw new ServiceException("permission>>>>null");

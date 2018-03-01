@@ -16,7 +16,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <!--开启基于注解的事务管理-->
-    <tx:annotation-driven/>
+    <!--<tx:annotation-driven/>-->
 
     <!--MyBatis SqlSessionFactory-->
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

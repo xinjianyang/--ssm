@@ -12,6 +12,8 @@ import java.util.List;
 public interface CurdService {
 
 
+    void checkRole();
+
     void saveRole(Role role);
 
     void saveAccount(Account account);

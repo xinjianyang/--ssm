@@ -2,6 +2,7 @@ package com.shanghai.controller;
 
 import com.shanghai.domain.service.CurdService;
 import com.shanghai.pojo.*;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ public class CurdController {
     @Autowired
     private CurdService curdService;
 
+    @RequiresRoles("admin")
     @GetMapping("/role/add")
     public String roleAdd(){
         return "role/add";
@@ -38,11 +40,13 @@ public class CurdController {
         return "account/add";
     }
 
+
     @PostMapping("/account/add")
     public String saveAccount(Account account,Model model){
         curdService.saveAccount(account);
         return "redirect:/account/add";
     }
+
 
     @GetMapping("/permission/add")
     public String permissionAdd(){
