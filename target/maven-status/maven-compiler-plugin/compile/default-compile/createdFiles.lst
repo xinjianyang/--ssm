@@ -26,6 +26,7 @@ com\shanghai\controller\HomeController.class
 com\shanghai\pojo\AccountRoleExample$GeneratedCriteria.class
 com\shanghai\pojo\Role.class
 com\shanghai\domain\service\impl\CurdServiceImpl.class
+com\shanghai\controller\BaseController.class
 com\shanghai\domain\service\TestService.class
 com\shanghai\pojo\PermissionExample.class
 com\shanghai\pojo\AccountRoleExample$Criterion.class

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author xinjian
  */
 @Controller
-public class CurdController {
+public class CurdController extends BaseController{
 
     @Autowired
     private CurdService curdService;

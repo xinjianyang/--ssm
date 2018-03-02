@@ -16,6 +16,7 @@ D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\mapper\AccountMapper.jav
 D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\pojo\RolePermissionKey.java
 D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\domain\service\impl\CurdServiceImpl.java
 D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\controller\aop\AppWideExceptionHandler.java
+D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\controller\BaseController.java
 D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\pojo\AccountRoleExample.java
 D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\domain\service\TestService.java
 D:\idea-WorkSpace\ssm-simple\src\main\java\com\shanghai\mapper\RolePermissionMapper.java
