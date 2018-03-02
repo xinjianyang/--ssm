@@ -34,6 +34,7 @@ com\shanghai\exception\ServiceException.class
 com\shanghai\pojo\RolePermissionExample.class
 com\shanghai\mapper\AccountRoleMapper.class
 com\shanghai\mapper\RoleMapper.class
+com\shanghai\controller\aop\AppWideExceptionHandler.class
 com\shanghai\controller\aop\CurdAop.class
 com\shanghai\controller\CurdController.class
 com\shanghai\pojo\PermissionExample$GeneratedCriteria.class

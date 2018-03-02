@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>hello world</h1>
-<h1>这是需要admin角色的页面</h1>
+<h1>这是首页</h1>
 <a href="/logout">安全退出</a>
 <<a href="/account/add">添加账户</a>
 <a href="/role/add">添加角色</a>

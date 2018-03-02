@@ -2,13 +2,17 @@ package com.shanghai.controller;
 
 import com.shanghai.domain.service.CurdService;
 import com.shanghai.pojo.*;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * Created by xinjian on 2018/2/28 0028.
@@ -20,6 +24,14 @@ public class CurdController {
 
     @Autowired
     private CurdService curdService;
+
+    /**处理整个控制器类抛出的此类异常
+     * @return
+     *//*
+    @ExceptionHandler(UnauthorizedException.class)
+    public String handlerException(){
+        return "error";
+    }*/
 
     @RequiresRoles("admin")
     @GetMapping("/role/add")
@@ -33,6 +45,7 @@ public class CurdController {
         model.addAttribute("message","role新增成功");
         return "redirect:/role/add";
     }
+
 
     @RequiresRoles("admin")
     @GetMapping("/account/add")
@@ -48,6 +61,7 @@ public class CurdController {
     }
 
 
+    @RequiresPermissions("permissionAdd")
     @GetMapping("/permission/add")
     public String permissionAdd(){
         return "permission/add";
